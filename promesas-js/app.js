@@ -18,3 +18,14 @@ const posts = [
         "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
     },
 ];
+
+const findPostById = (id, callback) => {
+    // Primero se encuentra el post con el id
+    const post = posts.find(item => item.id === id);
+    // Después se llama a la función de callback para hacer algo con ese post. El callback se declara al llamarlo
+    callback(post);
+}
+
+findPostById(4, (post) => {
+    console.log(post);
+})
