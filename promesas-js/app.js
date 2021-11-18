@@ -22,10 +22,15 @@ const posts = [
 const findPostById = (id, callback) => {
     // Primero se encuentra el post con el id
     const post = posts.find(item => item.id === id);
-    // Después se llama a la función de callback para hacer algo con ese post. El callback se declara al llamarlo
-    callback(post);
+    // Comprobar si existe o no el post para evitar que devuelva undefined
+    // El callback tiene 2 parámetros de entrada, el error y el contenido
+    if (post)
+        callback(null, post); // Como no hay error, se envía null como primer argumento
+    else
+        callback("No post found with id: " + id); // En este caso el error es un string
 }
 
-findPostById(4, (post) => {
+findPostById(5, (err, post) => {
+    if (err) return console.log(err); // En el return para que no siga con el código
     console.log(post);
 })
