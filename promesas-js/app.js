@@ -30,7 +30,23 @@ const findPostById = (id, callback) => {
         callback("No post found with id: " + id); // En este caso el error es un string
 }
 
-findPostById(5, (err, post) => {
+findPostById(1, (err, post) => {
     if (err) return console.log(err); // En el return para que no siga con el código
     console.log(post);
-})
+
+    // Callback anidados: Callback Hell. Consiste en que hay tantos callbacks que es muy dificil seguir la traza y debuguear el código
+    findPostById(2, (err, post) => {
+        if (err) return console.log(err);
+        console.log(post);
+
+        findPostById(3, (err, post) => {
+            if (err) return console.log(err);
+            console.log(post);
+
+            findPostById(4, (err, post) => {
+                if (err) return console.log(err);
+                console.log(post);
+            });
+        });
+    });
+});
