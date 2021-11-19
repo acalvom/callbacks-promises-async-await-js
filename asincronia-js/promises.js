@@ -15,19 +15,17 @@ findPostById(1)
     .then((post) => {// Cuando ocurre el resolve
         console.log(post);
 
-        // Promises anidadas. Promises Hell. 
-        return findPostById(2)
-            .then(post => {
-                console.log(post);
-                return findPostById(3)
-                    .then(post => {
-                        console.log(post);
-                        return findPostById(4);
-                    })
-            })
+        // Promises Hell. Sin anidamiento -> Más limpio
+        return findPostById(2);
     })
-
-
+    .then(post => {
+        console.log(post);
+        return findPostById(3);
+    })
+    .then(post => {
+        console.log(post);
+        return findPostById(4);
+    })
     .catch(err => {// Cuando ocurre el reject
         console.log(err)
     })
