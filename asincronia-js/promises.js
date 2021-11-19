@@ -1,9 +1,9 @@
 import posts from './posts.js'
 
 const findPostById = (id) => {
-    const post = posts.find(item => item.id === id);
-
     return new Promise((resolve, reject) => {
+        const post = posts.find(item => item.id === id);
+
         if (post)
             resolve(post);
         else

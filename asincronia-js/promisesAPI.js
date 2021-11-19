@@ -6,11 +6,9 @@ const STATUS_OK = 200;
 const req = new XMLHttpRequest();
 
 const findCharacterByName = (name) => {
-
-    req.open('GET', API_URL, true);
-
-    // Todo el código anidado que involucre a la promesa se retorna dentro de esta (req.onreadystatechange = () => {...}) 
+    
     return new Promise((resolve, reject) => {
+        req.open('GET', API_URL, true);
         req.onreadystatechange = () => {
             if (req.readyState == DONE) {
                 if (req.status == STATUS_OK) {
