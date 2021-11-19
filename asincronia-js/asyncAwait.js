@@ -22,11 +22,12 @@ const findPostById = (id) => {
 // Nueva función async + Función con promesa await
 const findPostByIdAsync = async (id) => {
     try {
-        // Considerando ambas llamadas independientes una de otra
-        const post1 = await findPostById(1); // Await siempre dentro de un await
-        const post2 = await findPostById(2);
-
-        console.log(post1.title, post2.title); // El console no se ejecuta hasta que no te han obtenido los 2 posts (4 segundos)
+        // Considerando ambas llamadas independientes una de otra -> PromiseAll
+        // Promise All solo devuelve resultado cuando todas las promesas del array obtienen un resultado satisfactorio.
+        // Si uno de los dos no devuelve resultado automáticamente salta al catch
+        const posts = await Promise.all([findPostById(1), findPostById(2)]);
+        console.log(posts); // El console no se ejecuta a los 2 segundos porque se realizan las promesas en paralelo
+        
     } catch (error) {
         console.log(error);
     } finally {
