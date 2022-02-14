@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Input with multiple tags</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <style>
+    #tags {
+      font-family: Arial;
+      display: block;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+    #tags > span {
+      cursor: pointer;
+      display: block;
+      font-size: 0.9em;
+      border-radius: 8px;
+      float: left;
+      color: #fff;
+      padding: 5px;
+      margin: 4px;
+      background-color: #1867b7;
+    }
+    #tags > span:hover {
+      opacity: 0.5;
+    }
+    #tags > span:after {
+      content: "×";
+      padding: 2px 5px;
+      margin-left: 3px;
+    }
+    #tags > input {
+      border: none;
+      margin: 4px;
+      padding: 7px;
+      width: auto;
+    }
+    #tags > input {
+      outline: none;
+    }
+  </style>
+  <body>
+    <div id="tags">
+      <input type="text" value="" placeholder="Añadir etiqueta" />
+    </div>
+  </body>
+
+  <script>
+    $(function () {
+      $("#tags input").on({
+        focusout: function () {
+          const txt = this.value.replace(/[^a-z0-9\+\-\.#]/gi, ""); // caracteres permitidos          
+          if (txt) $("<span/>", { text: txt.toLowerCase(), insertBefore: this });
+          this.value = ""; // Limpiar el input value
+          var tags = [];
+          $("#tags span").each(function () {
+            let txt = $(this).text();
+            (tags.indexOf(txt) === -1) ? tags.push(txt) : $(this).remove(); // Comprobar que no hay una etiqueta igual
+          });
+          console.log(tags);
+        },
+        keyup: function (ev) {
+          // if: comma|enter
+          if (/(188|13)/.test(ev.which)) $(this).focusout();
+        },
+      });
+      $("#tags").on("click", "span", function () {
+        $(this).remove();
+      });
+    });
+  </script>
+</html>
