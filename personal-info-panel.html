@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cuentas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  </head>
+  <style>
+    .cuenta-card {
+      border: 1px solid #0D1F22;
+      border-radius: 1.5em;
+      padding: 2em;
+      margin-top: 2em;
+    }
+    .titulo-cuenta > h2 {
+      font-weight: bold;
+      color: #264027;
+      padding: 0 1em;
+      margin: 1em 0;
+    }
+    .informacion-input {
+      border-bottom: 1px solid rgba(90, 90, 90, 0.5);
+      margin: 0 1em;
+      padding-bottom: 0;
+      padding-top: 2em;
+      padding-left: 1.5em;
+    }
+    .informacion-input > label {
+      color: #3C5233;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .informacion-input > input {
+      border: none;
+    }
+    .informacion-box > fieldset {
+      border: 1px solid rgba(90, 90, 90, 0.5);
+      padding: 0 1em 1em;
+      margin: 2em 1em 0;
+    }
+    .informacion-box > fieldset > legend {
+      color: #6F732F;
+      font-size: inherit;
+      font-weight: bold;
+      width: auto;
+      padding: 0 0.5em;
+      border-bottom: none;
+    }
+    .informacion-box > fieldset > p {
+      width: 100%;
+      overflow: hidden;
+      border: none;
+      resize: none;
+      padding: 0 1em;
+    }
+  </style>
+  <body>
+    <!-- CUENTA PERSONAL -->
+    <div class="cuenta-card container">
+      <div class="titulo-cuenta row">
+        <h2>Cuenta Administrador</h2>
+      </div>
+      <div class="cuenta-row row">
+        <div class="col-sm-5">
+            <div class="cuenta-row">
+                <div class="informacion-input">
+                    <label for="dominio">Dominio</label>
+                    <input type="text" id="dominio" value="@company.com" readonly />
+                  </div>
+                  <div class="informacion-input">
+                    <label for="rol">Rol</label>
+                    <input type="text" id="rol" value="Administrador" readonly />
+                  </div>
+            </div>
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Dirigido a</legend>
+                  <p>Personal gestor de la aplicación</p>
+                </fieldset>
+            </div>
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Solicitud</legend>
+                  <p>La cuenta es otorgado a través del desarrollador</p>
+                </fieldset>
+            </div>
+          
+        </div>
+        <div class="col-sm-7">
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Descripción</legend>
+                    <p>Cuenta dirigida al personal administrador y gestor de la aplicación</p>
+                </fieldset>
+            </div>
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Servicios</legend>
+                  <ul>
+                    <li>AAAA</li>
+                    <li>BBBB</li>
+                    <li>CCCC</li>
+                    <li>DDDD</li>
+                  </ul>
+                </fieldset>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUENTA CLIENTE -->
+    <div class="cuenta-card container">
+      <div class="titulo-cuenta row">
+        <h2>Cuenta Cliente</h2>
+      </div>
+      <div class="cuenta-row row">
+        <div class="col-sm-5">
+            <div class="cuenta-row">
+                <div class="informacion-input">
+                    <label for="dominio">Dominio</label>
+                    <input type="text" id="dominio" value="@gmail.com / @hotmail.com ..." readonly />
+                  </div>
+                  <div class="informacion-input">
+                    <label for="rol">Rol</label>
+                    <input type="text" id="rol" value="Clientes" readonly />
+                  </div>
+            </div>
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Dirigido a</legend>
+                  <p>
+                    <ul>
+                      <li>Nuevos usurios que se dan de alta en la aplicación</li>
+                      <li>Clientes que desean obtener descuentos</li>
+                      <li>Proveedores</li>
+                    </ul>
+                  </p>
+                </fieldset>
+            </div>
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Solicitud</legend>
+                  <p>
+                    La cuenta se obtiene a través del autoregistro en la web de la tienda
+                    <a href="#">Solicitud de cuenta clientes</a>
+                  </p>
+                </fieldset>
+            </div>
+          
+        </div>
+        <div class="col-sm-7">
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Descripción</legend>
+                      <p>Cuenta dirigida a los usuarios externos a la aplicación</p>
+                </fieldset>
+            </div>
+            <div class="informacion-box cuenta-row">
+                <fieldset>
+                  <legend>Servicios</legend>
+                  <ul>
+                    <li>XXXX</li>
+                    <li>YYYY</li>
+                    <li>ZZZZ</li>
+                  </ul>
+                </fieldset>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="bootstrap\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+  </body>
+</html>
